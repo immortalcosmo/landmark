@@ -11,3 +11,8 @@ Extract into this directory
 # NLP
 * Sentiment - Text classification
 * Monkeys - Text generation
+
+# Time Series
+* MSFT - Analysis on Microsoft (MSFT)
+
+Data sourced from https://www.kaggle.com/jacksoncrow/stock-market-dataset
