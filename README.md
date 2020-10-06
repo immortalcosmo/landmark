@@ -1,4 +1,4 @@
-# Landmark
+# Images
 
 * LandmarkMod - Basic Multi-class image classification
 * LandmarkTransfer - Fine Tuned Transfer Learning using Xception
