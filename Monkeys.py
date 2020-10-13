@@ -49,7 +49,8 @@ vocab_size = len(vocab)
 embedding_dim = 256
 # Number of RNN units
 rnn_units = 256
-epochs = 3
+epochs = 10
+
 
 def build_model(vocab_size, embedding_dim, rnn_units, batch_size):
     model = tf.keras.Sequential([
@@ -74,6 +75,7 @@ model = build_model(
 def loss(labels, logits):
   return tf.keras.losses.sparse_categorical_crossentropy(labels, logits, from_logits=True)
 
+
 model.compile(optimizer='adam', loss=loss)
 
 # Directory where the checkpoints will be saved
@@ -91,6 +93,7 @@ model = build_model(vocab_size, embedding_dim, rnn_units, batch_size=1)
 model.load_weights(tf.train.latest_checkpoint(checkpoint_dir))
 
 model.build(tf.TensorShape([1, None]))
+
 
 def generate_text(model, start_string):
   # Evaluation step (generating text using the learned model)
@@ -127,6 +130,7 @@ def generate_text(model, start_string):
 
     text_generated.append(idx2char[predicted_id])
 
-  return (start_string + ''.join(text_generated))
+  return start_string + ''.join(text_generated)
+
 
 print(generate_text(model, start_string=u"ROMEO: "))
